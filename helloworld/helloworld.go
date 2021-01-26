@@ -14,9 +14,11 @@ func Helloworld(name string, language string) string {
 		name = "Doc"
 	}
 
-	return SelectLanguage(language) + name
+	return selectLanguage(language) + name
 }
-func SelectLanguage(language string) (helloprefix string) {
+
+//公有函数大写开头，私有函数小写开头，命名返回值可以直接只写return
+func selectLanguage(language string) (helloprefix string) {
 	switch language {
 	case spanish:
 		helloprefix = spanishhelloprefix
@@ -25,7 +27,7 @@ func SelectLanguage(language string) (helloprefix string) {
 	default:
 		helloprefix = englishhelloprefix
 	}
-	return helloprefix
+	return
 }
 func main() {
 	fmt.Println(Helloworld("Saria", ""))
