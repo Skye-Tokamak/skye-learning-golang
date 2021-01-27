@@ -2,8 +2,9 @@ package slice
 
 func Sum(numa [5]int) int {
 	var addall int
-	for i := 0; i < 5; i++ {
-		addall += numa[i]
+	//range用法
+	for _, num := range numa {
+		addall += num
 	}
 	return addall
 }
