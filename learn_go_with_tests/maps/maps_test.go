@@ -46,6 +46,18 @@ func TestUpdate(t *testing.T) {
 		assertDefinition(t, dictionary, key, newValue)
 	})
 }
+func TestDelete(t *testing.T) {
+	t.Run("delete", func(t *testing.T) {
+		key := "6"
+		value := "nian"
+		dictionary := Dictionary{key: value}
+		dictionary.Delete(key)
+		_, err := dictionary.Search(key)
+		if err != KeyNotFoundError {
+			t.Errorf("Expected '%s' to be deleted", key)
+		}
+	})
+}
 
 func assertString(t *testing.T, got string, want string) {
 	t.Helper()
